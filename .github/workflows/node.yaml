@@ -5,6 +5,7 @@ jobs:
 
   test-api: 
     runs-on: ubuntu-latest
+    container: ubuntu:20.04
     services:
       app: 
         image: alialaa17/simple-node-api
@@ -19,6 +20,10 @@ jobs:
           - 27017:27017
     
     steps:
+      - name: install curl
+        run: 
+          apt-get -y update 
+          apt-get -y install curl 
       - name: Dump services Context 
         run: echo '${{toJson(job.services)}}'
 
