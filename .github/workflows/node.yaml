@@ -21,7 +21,7 @@ jobs:
     
     steps:
       - name: install curl
-        run: 
+        run: |
           apt update -y
           apt install curl -y
           
